@@ -1,10 +1,12 @@
-# Executaveis gerados pela compilacao
+# Arquivos compilados
 *.exe
 *.o
 *.obj
 
-# Arquivos temporarios
-*.tmp
-
-# Configuracoes locais do editor
+# Configuracoes locais do VS Code
 .vscode/
+
+# Dados e resultados gerados durante a execucao
+data/*.txt
+output/*.txt
+logs/*.csv

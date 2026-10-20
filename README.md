@@ -2,134 +2,80 @@
 
 # 🔢 OrdenaC
 
-### Laboratório de Algoritmos de Ordenação em C
+### Algoritmos de ordenação em linguagem C
 
-**Projeto acadêmico • Algoritmos e Pensamento Computacional • Atividade Avaliativa 03**
+**Uma aplicação de terminal para explorar, executar e comparar cinco métodos de ordenação.**
 
-![Linguagem](https://img.shields.io/badge/Linguagem-C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Em%20desenvolvimento-F59E0B?style=for-the-badge)
-![Compilador](https://img.shields.io/badge/Compilador-GCC-555555?style=for-the-badge)
+![Linguagem C](https://img.shields.io/badge/Linguagem-C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Algoritmos](https://img.shields.io/badge/Algoritmos-5-2962FF?style=for-the-badge)
+![Interface](https://img.shields.io/badge/Interface-Terminal-333333?style=for-the-badge)
+![Plataforma](https://img.shields.io/badge/Plataforma-Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 
 </div>
 
 ---
 
-## 📖 Sobre o projeto
+## 🎯 Sobre o projeto
 
-**OrdenaC** é um programa de terminal desenvolvido em linguagem **C** para estudar e comparar algoritmos de ordenação. O projeto faz parte da **Atividade Avaliativa 03** da disciplina de Algoritmos e Pensamento Computacional, no curso de Engenharia de Software.
+O **OrdenaC** é um projeto acadêmico desenvolvido em **linguagem C** para estudar, na prática, diferentes algoritmos de ordenação e comparar seus desempenhos.
 
-A aplicação gera conjuntos de números pseudoaleatórios, registra os dados em arquivo TXT e permite carregá-los em memória. Ao longo do desenvolvimento, serão adicionados diferentes métodos de ordenação e recursos para comparar seus resultados e desempenho.
+Por meio de um menu no terminal, o programa gera **de 1 a 10.000 números inteiros aleatórios**, permite visualizar e alterar os valores originais, ordena os dados pelo método escolhido e registra os resultados em arquivos **TXT**. Também mede o tempo de execução dos cinco algoritmos e mantém um histórico das comparações em **CSV**.
 
-O projeto também é utilizado como prática de **ponteiros, alocação dinâmica de memória e manipulação de arquivos em C**.
+## ⚙️ Funcionalidades
 
-> 🚧 **Em desenvolvimento:** o README acompanha a evolução do programa. As funcionalidades planejadas abaixo ainda não estão disponíveis na versão atual.
+- 🎲 **Gerar números:** cria um arquivo com até 10.000 números inteiros aleatórios, com valores de 1 a 10.000.
+- 📄 **Visualizar e alterar dados:** consulta o arquivo original e permite substituir um número pela sua posição.
+- 🔀 **Ordenar:** aplica um dos cinco algoritmos e salva o resultado em ordem crescente.
+- ⏱️ **Comparar desempenho:** mede os tempos dos cinco métodos utilizando os mesmos dados de entrada.
+- 📊 **Registrar benchmarks:** armazena data, hora, quantidade de números, algoritmo e tempo em um arquivo CSV.
 
-## ✅ Funcionalidades atuais
+## 🧠 Métodos de ordenação
 
-- [x] Menu interativo no terminal.
-- [x] Geração de números pseudoaleatórios com `rand()` e inicialização da semente com `srand()`.
-- [x] Definição da quantidade de números pelo usuário (de 1 a 10.000).
-- [x] Gravação dos números em `data/dados.txt`, separados por vírgulas.
-- [x] Leitura do arquivo TXT e carregamento dos números em um vetor.
-- [x] Visualização dos dados originais.
-- [x] Uso de `malloc()` e `free()` para gerenciamento de memória.
+| Algoritmo | Como funciona | Complexidade média |
+|:--|:--|:--:|
+| **Bubble Sort** | Compara números vizinhos e troca os que estiverem fora de ordem, levando os maiores para o final. | `O(n²)` |
+| **Insertion Sort** | Insere cada novo número na posição correta da parte do vetor que já está ordenada. | `O(n²)` |
+| **Selection Sort** | Procura o menor valor da parte não ordenada e o coloca na próxima posição. | `O(n²)` |
+| **Merge Sort** | Divide o vetor em partes menores e depois intercala essas partes em ordem. | `O(n log n)` |
+| **Quick Sort** | Escolhe um pivô, separa os valores menores e maiores e ordena recursivamente cada lado. | `O(n log n)` |
 
-## 🛠️ Próximas funcionalidades
+> **Comparação:** Bubble, Insertion e Selection costumam exigir mais operações em conjuntos grandes. Merge e Quick tendem a ser mais eficientes nesses casos. O Quick Sort, porém, pode atingir `O(n²)` no pior caso. Os tempos medidos variam conforme os dados e o computador utilizado.
 
-- [ ] Implementar **Bubble Sort**.
-- [ ] Implementar **Insertion Sort**.
-- [ ] Implementar **Selection Sort**.
-- [ ] Implementar **Merge Sort**.
-- [ ] Implementar **Quick Sort**.
-- [ ] Permitir a escolha do método de ordenação no menu.
-- [ ] Salvar os números ordenados em `output/ordenado.txt`.
-- [ ] Alterar um número do arquivo original e executar nova ordenação.
-- [ ] Comparar o tempo de execução dos algoritmos.
-- [ ] Exportar resultados e medições para CSV.
-- [ ] Importar um arquivo TXT fornecido pelo usuário.
-
-## 📂 Estrutura do projeto
+## 📁 Arquivos gerados
 
 ```text
-atividade03/
-├── main.c                 # Código-fonte principal
+OrdenaC/
+├── main.c                 # Codigo-fonte do programa
 ├── data/
-│   └── dados.txt          # Números originais
-├── output/                # Arquivos de saída (planejado)
-│   ├── ordenado.txt
-│   └── resultado.csv
-├── logs/                  # Registros de desempenho (planejado)
-│   └── benchmark.csv
-└── README.md
+│   └── dados.txt          # Numeros originais
+├── output/
+│   └── ordenado.txt       # Resultado da ultima ordenacao
+└── logs/
+    └── benchmark.csv      # Historico das comparacoes
 ```
 
-> As pastas `output/` e `logs/` e seus arquivos representam a organização planejada e poderão ainda não existir na versão atual.
+Os números originais são preservados durante a ordenação. Ao **alterar um valor**, é necessário executar novamente um algoritmo para atualizar `output/ordenado.txt`.
 
-## ▶️ Como executar
+## 💻 Execução
 
-### Pré-requisitos
+**Requisitos:** Windows e compilador GCC (por exemplo, MinGW-w64). O benchmark utiliza `QueryPerformanceCounter`, da API do Windows.
 
-- Compilador C, como **GCC** (por exemplo, MinGW no Windows).
-- Terminal ou editor, como **Visual Studio Code**.
-
-### Compilação
-
-Abra o terminal na pasta do projeto e execute:
-
-```bash
-gcc -Wall -Wextra -std=c11 main.c -o ordenac.exe
-```
-
-No **Windows (PowerShell)**, execute:
+No terminal **PowerShell**, dentro da pasta do projeto, crie as pastas necessárias, compile e execute:
 
 ```powershell
+New-Item -ItemType Directory -Force -Path data, output, logs | Out-Null
+gcc main.c -o ordenac.exe
 .\ordenac.exe
 ```
 
-> Antes de gerar números, certifique-se de que a pasta `data/` existe na raiz do projeto. Execute o programa a partir dessa raiz, pois os caminhos dos arquivos são relativos.
-
-## 🧪 Exemplo de uso
-
-1. Execute o programa e selecione **1 — Criar arquivo de números**.
-2. Informe quantos números deseja gerar (por exemplo, `5`).
-3. O programa salvará os dados em `data/dados.txt`:
-
-```text
-45,12,89,3,27
-```
-
-4. Selecione **3 — Visualizar dados originais** para conferir os números carregados do arquivo.
-
-*Os valores acima são ilustrativos; os números gerados pelo programa variam.*
-
-## 🧠 Conceitos praticados
-
-| Conceito | Aplicação no projeto |
-|---|---|
-| Funções | Separação de responsabilidades do programa |
-| Ponteiros | Acesso e alteração de dados por endereço |
-| Memória dinâmica | Alocação e liberação com `malloc()` e `free()` |
-| Arquivos | Escrita e leitura com `fopen()`, `fprintf()`, `fscanf()` e `fclose()` |
-| Vetores | Armazenamento dos números para processamento |
-| Estruturas de controle | Menu com `switch`, repetições com `for` e `while` |
-| Algoritmos | Implementação e comparação dos métodos de ordenação (em desenvolvimento) |
-
-## 🎯 Objetivos de aprendizagem
-
-- Aplicar conceitos de programação estruturada em C.
-- Manipular arquivos de texto e vetores de inteiros.
-- Praticar alocação dinâmica e gerenciamento de memória.
-- Implementar diferentes algoritmos de ordenação.
-- Analisar resultados e comparar desempenho em condições equivalentes.
-
 ## 👨‍💻 Autor
 
-Desenvolvido por **Diego Troiani** como projeto acadêmico de Engenharia de Software.
+Desenvolvido como projeto acadêmico de estudo de **algoritmos, vetores, arquivos e linguagem C**.
 
-[![GitHub](https://img.shields.io/badge/GitHub-ditroiani-181717?style=flat-square&logo=github)](https://github.com/ditroiani)
+**[Diego Troiani](https://github.com/ditroiani)** · [Repositório OrdenaC](https://github.com/ditroiani/ordena-c)
 
 ---
 
 <div align="center">
-  <sub>📚 Projeto acadêmico desenvolvido para fins de estudo e evolução contínua.</sub>
+  <sub>OrdenaC • Aprendendo algoritmos na prática</sub>
 </div>
