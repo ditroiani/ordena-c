@@ -72,8 +72,7 @@ gcc main.c -o ordenac.exe
 
 Desenvolvido como projeto acadêmico de estudo de **algoritmos, vetores, arquivos e linguagem C**.
 
-**[Diego Troiani](https://github.com/ditroiani)** · [Repositório OrdenaC](https://github.com/ditroiani/ordena-c)
-
+**[Diego Troiani](https://linkedin.com/in/dtroiani/)** ·
 ---
 
 <div align="center">
